@@ -1,196 +1,204 @@
-<!DOCTYPE html> <!-- ¡Hola, computadora! Esto es una página web. Es como la portada de un libro. -->
-<html lang="es"> <!-- Le decimos que nuestra página estará en español. 🇪🇸 -->
+<!DOCTYPE html> 
+<html lang="es"> 
 
-<!-- La cabeza de nuestra página. Aquí guardamos instrucciones secretas y herramientas que no se ven, pero son muy importantes. -->
 <head>
-    <!-- Esto ayuda a la computadora a entender letras especiales como la 'ñ' y los acentos. -->
     <meta charset="UTF-8">
-    <!-- Esto hace que nuestra página se vea bien en teléfonos y tabletas, no solo en pantallas grandes. 📱💻 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- El título que aparece en la pestaña del navegador. -->
     <title>didakus | Soluciones Inteligentes de Datos y Automatización</title>
     
-    <!-- ¡Vamos a pedir prestadas unas letras geniales de Google para que nuestros títulos y textos se vean bonitos! 🎨 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- También pediremos prestados unos iconos (dibujitos) para decorar nuestra página, como estrellas y cohetes. ⭐🚀 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Aquí empieza la magia de la decoración (CSS). Le diremos a cada pieza cómo debe verse. -->
     <style>
-        /* --- 🎨 ¡Nuestra Paleta de Colores y Reglas Mágicas! --- */
         :root {
-            /* Aquí guardamos nuestros colores favoritos en cajitas con nombres para usarlos después. */
-            --primary-color: #121212;   /* Un negro muy oscuro, como el espacio. ⚫ */
-            --secondary-color: #D32F2F; /* Un rojo elegante y llamativo. 🔴 */
-            --accent-color: #E0E0E0;    /* Un gris muy clarito. */
-            --light-bg: #F5F5F5;        /* Un fondo casi blanco, para que no canse la vista. */
-            --white: #ffffff;           /* Blanco puro. ⚪ */
-            --text-color: #333333;      /* El color para la mayoría de nuestros textos. */
-            --light-text: #FAFAFA;      /* Un texto clarito para fondos oscuros. */
+            --primary-color: #121212;
+            --secondary-color: #D32F2F;
+            --accent-color: #E0E0E0;
+            --light-bg: #F5F5F5;
+            --white: #ffffff;
+            --text-color: #333333;
+            --light-text: #FAFAFA;
+            --whatsapp-green: #25D366;
+            --linkedin-blue: #0A66C2;
         }
 
-        /* La estrella (*) es una varita mágica que le aplica estas reglas a TODO en la página. */
         * {
-            margin: 0; /* Quita todos los espacios de los bordes. */
-            padding: 0; /* Quita todo el relleno interior. */
-            box-sizing: border-box; /* ¡Magia! Las cajas no crecen si les ponemos borde. */
-            scroll-behavior: smooth; /* Para que al hacer clic en un link, la página baje suavemente. ✨ */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        /* Le damos estilo al "cuerpo" entero de nuestra página web. */
         body {
-            font-family: 'Open Sans', sans-serif; /* El tipo de letra que usaremos para los párrafos. */
-            line-height: 1.7; /* El espacio entre una línea de texto y la siguiente. */
-            color: var(--text-color); /* Usamos el color de texto que guardamos en nuestra paleta. */
-            background-color: var(--white); /* El color de fondo de toda la página. */
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.7;
+            color: var(--text-color);
+            background-color: var(--white);
         }
 
-        /* Un "contenedor" es como una caja invisible para mantener todo nuestro contenido centrado y ordenado. */
         .container {
-            width: 90%; /* Que la caja ocupe el 90% del ancho de la pantalla. */
-            max-width: 1100px; /* Pero que nunca sea más ancha que 1100 pixeles. */
-            margin: auto; /* Esto la centra automáticamente. */
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
         }
 
-        /* Reglas para todos nuestros títulos. */
         h1, h2, h3 {
-            font-family: 'Roboto', sans-serif; /* Usamos nuestra otra letra chula para los títulos. */
-            color: var(--primary-color); /* Usamos el color negro oscuro. */
-            font-weight: 700; /* Hacemos la letra un poco más "gordita" (negrita). */
+            font-family: 'Roboto', sans-serif;
+            color: var(--primary-color);
+            font-weight: 700;
         }
         
-        /* Reglas especiales solo para los títulos de tipo h2. */
         h2 {
-            font-size: 2.8rem; /* Un tamaño de letra bien grande. */
-            text-align: center; /* Centramos el título. */
-            margin-bottom: 1rem; /* Le damos un poquito de espacio por debajo. */
-            font-weight: 900; /* ¡Aún más gordita la letra! */
-        }
-
-        /* Para los subtítulos que van debajo de los títulos grandes. */
-        .section-subtitle {
-            text-align: center; /* También centrado. */
-            font-size: 1.1rem; /* Un poco más grande que el texto normal. */
-            max-width: 700px; /* Para que no sea una línea de texto súper larga. */
-            margin: 0 auto 4rem auto; /* Lo centramos y le damos mucho espacio por debajo. */
-            color: #616161; /* Un color de texto gris. */
-        }
-
-        /* --- 🗺️ Decorando nuestro Menú de Navegación --- */
-        .navbar {
-            background: rgba(255, 255, 255, 0.95); /* Fondo blanco un poquito transparente. */
-            backdrop-filter: blur(5px); /* Un efecto de vidrio esmerilado en el fondo. ¡Qué pro! */
-            padding: 1rem 0; /* Espacio por arriba y por abajo. */
-            position: fixed; /* ¡Esto lo deja pegado arriba aunque bajemos en la página! */
-            width: 100%; /* Que ocupe todo el ancho. */
-            top: 0; /* Pegado a la parte de arriba. */
-            left: 0; /* Pegado a la parte de la izquierda. */
-            z-index: 1000; /* Como una capa mágica que lo pone por encima de todo lo demás. */
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Una sombrita suave para que parezca que flota. */
-            transition: background 0.3s ease; /* Cualquier cambio de color será suavecito. */
-        }
-
-        /* El contenedor dentro de nuestro menú. */
-        .navbar .container {
-            display: flex; /* Ponemos los elementos (logo y links) uno al lado del otro. */
-            justify-content: space-between; /* Empuja el logo a la izquierda y los links a la derecha. */
-            align-items: center; /* Los alinea verticalmente en el centro. */
-        }
-
-        /* El logo de la página. */
-        .navbar .logo {
-            font-size: 2rem; /* Letra grande. */
-            font-weight: 900; /* ¡Súper negrita! */
-            color: var(--primary-color); /* Color negro. */
-            text-decoration: none; /* Le quitamos el subrayado que tienen los links. */
-        }
-        /* El puntito del logo. */
-        .navbar .logo span {
-            color: var(--secondary-color); /* ¡Lo pintamos de nuestro color rojo! */
-        }
-
-        /* La lista de enlaces del menú. */
-        .navbar .nav-links {
-            list-style: none; /* Le quitamos los puntitos de lista. */
-            display: flex; /* Los ponemos uno al lado del otro. */
-        }
-        
-        /* Cada elemento de la lista. */
-        .navbar .nav-links li {
-            margin-left: 2.5rem; /* Separamos los enlaces entre sí. */
-        }
-        
-        /* Los enlaces del menú (las palabras en las que haces clic). */
-        .navbar .nav-links a {
-            text-decoration: none; /* Sin subrayado. */
-            color: var(--primary-color); /* Color negro. */
-            font-weight: 600; /* Letra un poco negrita. */
-            position: relative; /* Necesario para el truco de la línea de abajo. */
-            padding-bottom: 5px; /* Espacio para que quepa la línea. */
-            font-size: 1rem; /* Tamaño de letra normal. */
-        }
-        
-        /* TRUCO MÁGICO: una línea que aparece debajo del enlace. */
-        .navbar .nav-links a::after {
-            content: ''; /* Creamos algo de la nada. */
-            position: absolute; /* Lo podemos mover a donde queramos. */
-            bottom: 0; /* Lo pegamos abajo del todo. */
-            left: 50%; /* Lo ponemos justo en el medio. */
-            transform: translateX(-50%); /* Lo centramos perfectamente. */
-            width: 0; /* Al principio, la línea no tiene ancho (es invisible). */
-            height: 3px; /* Será de 3 pixeles de alto. */
-            background: var(--secondary-color); /* ¡Será de color rojo! */
-            transition: width 0.3s ease; /* La animación para que crezca suavemente. */
-        }
-
-        /* Cuando pasamos el ratón por encima del enlace... */
-        .navbar .nav-links a:hover::after {
-            width: 100%; /* ¡La línea crece hasta ocupar todo el ancho! */
-        }
-
-        /* --- 👋 La Gran Bienvenida (Sección Hero) --- */
-        #hero {
-            background: var(--primary-color); /* Fondo negro oscuro. */
-            color: var(--light-text); /* Texto de color clarito. */
-            height: 100vh; /* ¡Que ocupe TODA la altura de la pantalla! */
-            display: flex; /* Usamos flex para centrar el contenido. */
-            align-items: center; /* Centrado vertical. */
-            justify-content: center; /* Centrado horizontal. */
-            text-align: center; /* El texto dentro también estará centrado. */
-            padding-top: 60px; /* Un empujoncito hacia abajo para que no choque con el menú. */
-        }
-        
-        /* El contenido de la bienvenida. */
-        #hero .hero-content {
-            max-width: 850px; /* Para que el texto no sea demasiado ancho en pantallas grandes. */
-        }
-
-        /* El título principal de la página (H1). */
-        #hero h1 {
-            font-size: 4.5rem; /* ¡Letra GIGANTE! */
+            font-size: 2.8rem;
+            text-align: center;
+            margin-bottom: 1rem;
             font-weight: 900;
-            margin-bottom: 1rem; /* Espacio por debajo. */
-            color: var(--white); /* Color blanco. */
-            line-height: 1.1; /* Juntamos un poquito las líneas del título. */
-        }
-        
-        /* El puntito del título principal. */
-        #hero h1 span {
-            color: var(--secondary-color); /* ¡De color rojo! */
         }
 
-        /* El párrafo de bienvenida. */
-        #hero p {
-            font-size: 1.4rem; /* Letra grandecita. */
-            font-weight: 400; /* Letra normal (no negrita). */
-            margin-bottom: 2.5rem; /* Bastante espacio por debajo. */
-            color: var(--accent-color); /* Color gris clarito. */
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 4rem auto;
+            color: #616161;
+        }
+
+        /* --- Menú de Navegación --- */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: background 0.3s ease;
+        }
+
+        .navbar .container {
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+
+        .navbar .logo {
+            font-size: 2rem; 
+            font-weight: 900; 
+            color: var(--primary-color); 
+            text-decoration: none; 
         }
         
-        /* Estilo para el eslogan de la consulta gratis */
+        .navbar .logo span {
+            color: var(--secondary-color); 
+        }
+
+        .navbar .nav-links {
+            list-style: none; 
+            display: flex; 
+        }
+        
+        .navbar .nav-links li {
+            margin-left: 2.5rem; 
+        }
+        
+        .navbar .nav-links a {
+            text-decoration: none; 
+            color: var(--primary-color); 
+            font-weight: 600; 
+            position: relative; 
+            padding-bottom: 5px; 
+            font-size: 1rem; 
+        }
+        
+        .navbar .nav-links a::after {
+            content: ''; 
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%); 
+            width: 0; 
+            height: 3px; 
+            background: var(--secondary-color); 
+            transition: width 0.3s ease; 
+        }
+
+        .navbar .nav-links a:hover::after {
+            width: 100%; 
+        }
+
+        /* --- Sección Hero Creativa --- */
+        #hero {
+            color: var(--light-text); 
+            height: 100vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 60px 20px;
+            background: linear-gradient(-45deg, #121212, #232323, #B71C1C, #121212);
+            background-size: 400% 400%;
+            animation: gradientBG 20s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        #hero .hero-content {
+            max-width: 850px; 
+            z-index: 2;
+        }
+
+        #hero h1 {
+            font-size: 4.5rem; 
+            font-weight: 900;
+            margin-bottom: 1rem; 
+            color: var(--white); 
+            line-height: 1.1; 
+        }
+
+        #hero h1 .line {
+            display: block;
+            opacity: 0;
+            animation: fadeInDown 1s forwards;
+        }
+        #hero h1 .line-1 { animation-delay: 0.5s; }
+        #hero h1 .line-2 { animation-delay: 1.5s; }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        #hero h1 span {
+            color: var(--secondary-color); 
+        }
+
+        #hero p {
+            font-size: 1.4rem; 
+            font-weight: 400; 
+            margin-bottom: 1.5rem; 
+            color: var(--accent-color); 
+            opacity: 0;
+            animation: fadeInDown 1s forwards;
+            animation-delay: 2.5s;
+        }
+        
         #hero .free-consult-slogan {
             font-size: 1.2rem;
             font-weight: 600;
@@ -202,172 +210,190 @@
             margin-top: 1rem;
             border: 1px solid var(--secondary-color);
             margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInDown 1s forwards;
+            animation-delay: 3s;
+        }
+        
+        #hero .btn-primary {
+            opacity: 0;
+            animation: fadeInDown 1s forwards;
+            animation-delay: 3.5s;
         }
 
-        /* --- 🔘 Estilo para nuestros Botones --- */
         .btn {
-            display: inline-block; /* Se comporta como texto pero podemos darle tamaño. */
-            padding: 1rem 3rem; /* Mucho relleno para que sea un botón grande y cómodo. */
-            border-radius: 5px; /* Bordes redondeados. */
-            text-decoration: none; /* Sin subrayado. */
-            font-weight: 700; /* Letra negrita. */
-            transition: all 0.3s ease; /* Todas las animaciones serán suaves. */
-            border: 2px solid transparent; /* Un borde invisible (por ahora). */
-            font-family: 'Roboto', sans-serif; /* La letra de los títulos. */
-            text-transform: uppercase; /* ¡TODO EN MAYÚSCULAS! */
-            letter-spacing: 1px; /* Un poquito de espacio entre las letras. */
+            display: inline-block; 
+            padding: 1rem 3rem; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            font-weight: 700; 
+            transition: all 0.3s ease; 
+            border: 2px solid transparent; 
+            font-family: 'Roboto', sans-serif; 
+            text-transform: uppercase; 
+            letter-spacing: 1px; 
         }
         
-        /* El botón principal (el rojo). */
         .btn-primary {
-            background: var(--secondary-color); /* Fondo rojo. */
-            color: var(--white); /* Letras blancas. */
-            border-color: var(--secondary-color); /* El borde es rojo también. */
+            background: var(--secondary-color); 
+            color: var(--white); 
+            border-color: var(--secondary-color); 
         }
         
-        /* Cuando pasamos el ratón por encima del botón rojo... */
         .btn-primary:hover {
-            background: var(--white); /* El fondo se vuelve blanco. */
-            color: var(--secondary-color); /* Las letras se vuelven rojas. */
-            transform: scale(1.05); /* ¡Se hace un poquito más grande! */
+            background: var(--white); 
+            color: var(--secondary-color); 
+            transform: scale(1.05); 
         }
 
-        /* --- 🧑‍💻 Sección "Sobre Mí" --- */
+        /* --- Estilos para Animaciones de Scroll --- */
+        .animated-section {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .animated-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .testimonial-card, .contact-item {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .is-visible .testimonial-card, .is-visible .contact-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Staggered animation delays */
+        .is-visible .animated-item:nth-child(1) { transition-delay: 0.1s; }
+        .is-visible .animated-item:nth-child(2) { transition-delay: 0.2s; }
+        .is-visible .animated-item:nth-child(3) { transition-delay: 0.3s; }
+        .is-visible .animated-item:nth-child(4) { transition-delay: 0.4s; }
+        .is-visible .animated-item:nth-child(5) { transition-delay: 0.5s; }
+        .is-visible .animated-item:nth-child(6) { transition-delay: 0.6s; }
+
+
+        /* --- Secciones --- */
         #about {
-            padding: 6rem 0; /* Mucho espacio por arriba y por abajo. */
-            background: var(--light-bg); /* Fondo gris muy clarito. */
+            padding: 6rem 0; 
+            background: var(--light-bg); 
         }
         
-        /* Aquí organizaremos la foto y el texto. */
         #about .about-content {
-            display: grid; /* Usamos una "parrilla" para organizarlo. */
-            grid-template-columns: 1fr 2fr; /* Dividimos el espacio en dos columnas: una para la foto y otra (más ancha) para el texto. */
-            align-items: center; /* Centramos verticalmente la foto y el texto. */
-            gap: 4rem; /* Un buen espacio entre la foto y el texto. */
-        }
-        
-        /* La foto. */
-        #about .about-image img {
-            width: 100%; /* La imagen ocupa todo el ancho de su columna. */
-            border-radius: 10px; /* Bordes redondeados. */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Una sombra bonita para que resalte. */
+            max-width: 800px; 
+            margin: 0 auto; 
         }
 
         #about h3 {
-            font-size: 2.2rem; /* Título de la sección. */
-            margin-bottom: 1.5rem; /* Espacio debajo. */
+            font-size: 2.2rem; 
+            margin-bottom: 1.5rem; 
+            text-align: center; 
         }
         
         #about p {
-            margin-bottom: 1rem; /* Espacio entre párrafos. */
+            margin-bottom: 1rem; 
         }
 
-        /* --- 🛠️ Sección de Soluciones (Servicios) --- */
         #services {
-            padding: 6rem 0; /* Mucho espacio vertical. */
-            background: var(--white); /* Fondo blanco. */
+            padding: 6rem 0; 
+            background: var(--white); 
         }
 
-        /* La parrilla donde irán las tarjetas de servicios. */
         .services-grid {
-            display: grid; /* ¡Otra parrilla! */
+            display: grid; 
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem; /* Espacio entre las tarjetas. */
+            gap: 2rem; 
         }
 
-        /* Cada una de las tarjetas de servicio. */
         .service-card {
-            background: var(--white); /* Fondo blanco. */
-            padding: 2.5rem; /* Relleno interior. */
-            border: 1px solid #ddd; /* Un borde finito y gris. */
-            text-align: center; /* Centramos todo el contenido. */
-            border-radius: 10px; /* Bordes redondeados. */
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* Una sombra muy, muy suave. */
+            background: var(--white);
+            padding: 2.5rem;
+            border: 1px solid #ddd;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
-        /* Cuando pasamos el ratón por la tarjeta... */
         .service-card:hover {
-            transform: translateY(-10px); /* ¡La tarjeta sube un poquito! */
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* La sombra se hace más grande y oscura. */
-            border-color: var(--secondary-color); /* ¡El borde se vuelve rojo! */
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+            border-color: var(--secondary-color); 
         }
 
         .service-card .icon {
-            font-size: 3rem; /* El icono (dibujito) será grande. */
-            color: var(--secondary-color); /* De color rojo. */
-            margin-bottom: 1.5rem; /* Espacio debajo. */
+            font-size: 3rem; 
+            color: var(--secondary-color); 
+            margin-bottom: 1.5rem; 
         }
 
         .service-card h3 {
-            font-size: 1.5rem; /* El título de la tarjeta. */
+            font-size: 1.5rem; 
             margin-bottom: 1rem;
         }
         
-        /* --- 💬 Sección de Testimonios (Lo que dicen otros) --- */
         #testimonials {
             padding: 6rem 0;
-            background: var(--primary-color); /* Fondo negro oscuro. */
+            background: var(--primary-color); 
         }
         
         #testimonials h2 {
-            color: var(--white); /* Título grande en color blanco. */
+            color: var(--white); 
         }
 
         #testimonials .section-subtitle {
-            color: var(--accent-color); /* Subtítulo en gris clarito. */
+            color: var(--accent-color); 
         }
         
-        /* Parrilla para los testimonios. */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        /* Cada tarjeta de testimonio. */
         .testimonial-card {
-            background: var(--white); /* Fondo blanco. */
+            background: var(--white); 
             padding: 2rem;
             border-radius: 10px;
-            display: flex; /* Para poder ordenar el contenido de arriba a abajo. */
-            flex-direction: column; /* Ordenamos como una columna. */
+            display: flex; 
+            flex-direction: column; 
         }
 
-        /* Las estrellitas. */
         .testimonial-card .stars {
-            color: #FFC107; /* Color amarillo para las estrellas. ⭐ */
+            color: #FFC107; 
             margin-bottom: 1rem;
         }
         
         .testimonial-card .stars i {
-            margin-right: 2px; /* Pequeño espacio entre estrellas. */
+            margin-right: 2px; 
         }
 
-        /* El párrafo con la opinión. */
         .testimonial-card p.quote {
-            font-style: italic; /* Letra cursiva. */
+            font-style: italic; 
             margin-bottom: 1.5rem;
             flex-grow: 1;
         }
         
-        /* El nombre de quien da el testimonio. */
         .testimonial-card p.author {
-            font-weight: 700; /* Letra negrita. */
-            color: var(--primary-color); /* Color negro. */
-            align-self: flex-end; /* Lo alineamos a la derecha. */
+            font-weight: 700; 
+            color: var(--primary-color); 
+            align-self: flex-end; 
         }
 
-        /* --- 📢 Sección de Llamada a la Acción --- */
         #cta {
-            background: linear-gradient(rgba(211, 47, 47, 0.9), rgba(211, 47, 47, 0.9)), url('https://placehold.co/1920x1080/D32F2F/ffffff?text=Fondo+Tecnológico') no-repeat center center/cover;
-            color: var(--light-text); /* Texto clarito. */
+            background: var(--secondary-color);
+            color: var(--light-text); 
             padding: 6rem 0;
-            text-align: center; /* Todo centrado. */
+            text-align: center; 
         }
 
         #cta h2 {
-            color: var(--white); /* Título blanco. */
+            color: var(--white); 
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
@@ -375,27 +401,26 @@
         #cta p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            color: var(--white); /* Párrafo blanco. */
+            color: var(--white); 
             max-width: 700px;
-            margin-left: auto; /* Centramos el párrafo. */
+            margin-left: auto; 
             margin-right: auto;
         }
         
         #cta .btn-primary {
-            background: var(--white); /* Fondo blanco. */
-            color: var(--secondary-color); /* Letras rojas. */
-            border-color: var(--white); /* Borde blanco. */
+            background: var(--white); 
+            color: var(--secondary-color); 
+            border-color: var(--white); 
         }
         
         #cta .btn-primary:hover {
-            background: transparent; /* ¡El fondo se vuelve transparente! */
-            color: var(--white); /* Las letras se vuelven blancas. */
+            background: transparent; 
+            color: var(--white); 
         }
         
-        /* --- 📞 Sección de Contacto --- */
         #contact {
             padding: 6rem 0;
-            background: var(--light-bg); /* Fondo gris clarito. */
+            background: var(--light-bg); 
         }
         
         .contact-grid {
@@ -406,19 +431,15 @@
             margin-top: 3rem;
         }
         
-        .contact-item {
-            padding: 2.5rem;
-        }
-        
         .contact-item .icon {
-            font-size: 3rem; /* Icono grande. */
-            color: var(--secondary-color); /* Color rojo. */
+            font-size: 3rem; 
+            color: var(--secondary-color); 
             margin-bottom: 1rem;
-            transition: transform 0.3s ease; /* Animación suave. */
+            transition: transform 0.3s ease; 
         }
         
         .contact-item:hover .icon {
-            transform: scale(1.2); /* ¡El icono se hace más grande! */
+            transform: scale(1.2); 
         }
 
         .contact-item h3 {
@@ -427,56 +448,78 @@
         }
 
         .contact-item a {
-            color: var(--text-color); /* Color de texto normal. */
-            text-decoration: none; /* Sin subrayado. */
-            font-weight: 600; /* Letra un poco negrita. */
-            transition: color 0.3s ease; /* Animación de color suave. */
-            word-break: break-all; /* Si un email es muy largo, se puede partir. */
-            display: block; /* Para que cada email ocupe su propia línea. */
+            color: var(--text-color); 
+            text-decoration: none; 
+            font-weight: 600; 
+            transition: color 0.3s ease; 
+            word-break: break-all; 
+            display: block; 
             margin-top: 0.5rem;
         }
         
         .contact-item a:hover {
-            color: var(--secondary-color); /* ¡Se vuelve rojo! */
+            color: var(--secondary-color); 
         }
 
-        /* --- 👇 El Pie de Página --- */
         footer {
-            background: var(--primary-color); /* Fondo negro oscuro. */
-            color: var(--accent-color); /* Texto gris clarito. */
+            background: var(--primary-color); 
+            color: var(--accent-color); 
             text-align: center;
             padding: 2.5rem 0;
         }
         
         footer p {
-            font-size: 0.9rem; /* Letra pequeñita. */
+            font-size: 0.9rem; 
         }
         
-        /* --- 📱 Reglas Especiales para Pantallas Pequeñas (Como Teléfonos) --- */
+        .floating-action-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .fab-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            color: #FFF;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .fab-icon:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .fab-whatsapp { background-color: var(--whatsapp-green); }
+        .fab-linkedin { background-color: var(--linkedin-blue); }
+        .fab-email { background-color: var(--secondary-color); }
+
         @media (max-width: 768px) {
             h2 { font-size: 2.2rem; } 
             #hero h1 { font-size: 2.8rem; } 
             #hero p { font-size: 1.2rem; }
-
             .navbar .nav-links { display: none; } 
-
-            #about .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .contact-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-            }
+            #about .about-content { text-align: left; }
+            #about h3 { text-align: center; }
+            .contact-grid, .testimonials-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 
-<!-- ¡Aquí empieza el contenido visible de nuestra página! Son nuestros bloques de LEGO. -->
 <body>
 
-    <!-- 🗺️ EL MAPA DEL SITIO (MENÚ DE NAVEGACIÓN) -->
     <nav class="navbar">
         <div class="container">
             <a href="#hero" class="logo">didakus<span>.</span></a>
@@ -489,23 +532,21 @@
         </div>
     </nav>
 
-    <!-- 👋 LA GRAN BIENVENIDA -->
     <section id="hero">
         <div class="hero-content container">
-            <h1>Decisiones Inteligentes<span>.</span> <br>Resultados Reales<span>.</span></h1>
+            <h1>
+                <span class="line line-1">Decisiones Inteligentes<span>.</span></span>
+                <span class="line line-2">Resultados Reales<span>.</span></span>
+            </h1>
             <p>Transformamos tus datos en tu activo más valioso. Descubre el potencial oculto de tu negocio con soluciones de alto impacto.</p>
             <p class="free-consult-slogan">Tu primera consulta de diagnóstico es <strong>GRATIS</strong></p>
             <a href="#contact" class="btn btn-primary">Agendar Consulta Gratuita</a>
         </div>
     </section>
 
-    <!-- 🧑‍💻 SECCIÓN "SOBRE MÍ" -->
-    <section id="about">
+    <section id="about" class="animated-section">
         <div class="container">
             <div class="about-content">
-                <div class="about-image">
-                    <img src="https://placehold.co/400x400/eeeeee/333333?text=Foto+de+Diego" alt="Foto de Diego Hernández, el creador de la página." onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/333333?text=Imagen+no+encontrada';">
-                </div>
                 <div class="about-text">
                     <h3>Sobre Mí</h3>
                     <p>
@@ -522,44 +563,37 @@
         </div>
     </section>
 
-    <!-- 🛠️ SECCIÓN DE SOLUCIONES (SERVICIOS) -->
     <section id="services">
         <div class="container">
             <h2>Nuestras Soluciones</h2>
             <p class="section-subtitle">Un portafolio de servicios diseñados para generar un impacto medible y sostenible en tu negocio.</p>
             
             <div class="services-grid">
-                <!-- Tarjeta de Servicio 1 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Inteligencia de Negocios (BI)</h3>
                     <p>Transformamos datos crudos en dashboards dinámicos para que monitorees tus KPIs en tiempo real y tomes decisiones basadas en evidencia.</p>
                 </div>
-                <!-- Tarjeta de Servicio 2 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-robot"></i></div>
                     <h3>Automatización Inteligente (RPA)</h3>
                     <p>Liberamos a tu equipo de tareas repetitivas mediante la Automatización Robótica de Procesos, aumentando la productividad y reduciendo errores.</p>
                 </div>
-                <!-- Tarjeta de Servicio 3 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-server"></i></div>
                     <h3>Arquitectura de Datos</h3>
                     <p>Diseñamos la infraestructura de datos (SQL, PostgreSQL) que tu empresa necesita para crecer: segura, de alto rendimiento y escalable.</p>
                 </div>
-                <!-- Tarjeta de Servicio 4 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Análisis Predictivo</h3>
                     <p>Usamos machine learning para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven. Adelántate al futuro.</p>
                 </div>
-                 <!-- Tarjeta de Servicio 5 -->
                  <div class="service-card">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Integridad de Activos y Datos</h3>
                     <p>Fusionamos la ingeniería y la ciencia de datos para optimizar la vida útil de tus activos, analizar fallas y asegurar la calidad de tu información.</p>
                 </div>
-                 <!-- Tarjeta de Servicio 6 -->
                  <div class="service-card">
                     <div class="icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Desarrollo a Medida</h3>
@@ -569,30 +603,26 @@
         </div>
     </section>
 
-    <!-- 💬 SECCIÓN DE TESTIMONIOS -->
-    <section id="testimonials">
+    <section id="testimonials" class="animated-section">
         <div class="container">
             <h2>Experiencia con Organizaciones Líderes</h2>
             <p class="section-subtitle">La confianza y los resultados son el pilar de cada colaboración.</p>
             <div class="testimonials-grid">
-                <!-- Testimonio 1 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animated-item">
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="quote">"El análisis de datos de producción y la implementación de dashboards de control permitieron optimizar el proceso, resultando en una mejora tangible de la eficiencia operativa y la calidad del producto final."</p>
                     <p class="author">- Colaboración con Acerías Paz del Río</p>
                 </div>
-                <!-- Testimonio 2 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animated-item">
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="quote">"Se desarrollaron y automatizaron reportes críticos, garantizando la integridad y precisión de los datos para la toma de decisiones estratégicas en materia de derechos humanos y negocios."</p>
                     <p class="author">- Colaboración con Business and Human Rights</p>
                 </div>
-                <!-- Testimonio 3 -->
-                <div class="testimonial-card">
+                <div class="testimonial-card animated-item">
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
@@ -603,8 +633,7 @@
         </div>
     </section>
 
-    <!-- 📢 SECCIÓN DE LLAMADA A LA ACCIÓN -->
-    <section id="cta">
+    <section id="cta" class="animated-section">
         <div class="container">
             <h2>¿Listo para dar el primer paso?</h2>
             <p>El camino hacia la optimización comienza con una conversación. Agenda tu consulta de diagnóstico gratuita y descubramos juntos el potencial oculto en tus datos.</p>
@@ -612,25 +641,24 @@
         </div>
     </section>
 
-    <!-- 📞 SECCIÓN DE CONTACTO -->
-    <section id="contact">
+    <section id="contact" class="animated-section">
         <div class="container">
             <h2>Iniciemos la Conversación</h2>
             <p class="section-subtitle">Estoy disponible a través de estos canales para discutir su próximo proyecto.</p>
 
             <div class="contact-grid">
-                <div class="contact-item">
+                <div class="contact-item animated-item">
                     <div class="icon"><i class="fab fa-whatsapp"></i></div>
                     <h3>WhatsApp</h3>
                     <a href="https://wa.me/573216291861" target="_blank">+57 321 629 1861</a>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item animated-item">
                     <div class="icon"><i class="fas fa-envelope-open-text"></i></div>
                     <h3>Correo Electrónico</h3>
                     <a href="mailto:dialhebl.dh@gmail.com">dialhebl.dh@gmail.com</a>
                     <a href="mailto:diealeherbla.dh@gmail.com">diealeherbla.dh@gmail.com</a>
                 </div>
-                <div class="contact-item">
+                <div class="contact-item animated-item">
                      <div class="icon"><i class="fab fa-linkedin"></i></div>
                     <h3>LinkedIn</h3>
                     <a href="https://www.linkedin.com/in/diego-alejandro-hernandez-blanco-08b64120b" target="_blank">Diego A. Hernández Blanco</a>
@@ -639,12 +667,43 @@
         </div>
     </section>
 
-    <!-- 👇 EL PIE DE PÁGINA -->
     <footer>
         <div class="container">
             <p>&copy; 2025 didakus. Una marca de Diego Hernández Blanco. Todos los derechos reservados.</p>
         </div>
     </footer>
+    
+    <div class="floating-action-buttons">
+        <a href="mailto:dialhebl.dh@gmail.com" class="fab-icon fab-email" target="_blank" aria-label="Contactar por Correo">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/diego-alejandro-hernandez-blanco-08b64120b" class="fab-icon fab-linkedin" target="_blank" aria-label="Contactar por LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://wa.me/573216291861" class="fab-icon fab-whatsapp" target="_blank" aria-label="Contactar por WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script>
+        // Script para animar elementos al hacer scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+            });
+
+            // Observar todas las secciones con la clase .animated-section
+            document.querySelectorAll('.animated-section').forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
 
 </body>
 </html>
