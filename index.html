@@ -1,322 +1,373 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html> <!-- ¡Hola, computadora! Esto es una página web. Es como la portada de un libro. -->
+<html lang="es"> <!-- Le decimos que nuestra página estará en español. 🇪🇸 -->
+
+<!-- La cabeza de nuestra página. Aquí guardamos instrucciones secretas y herramientas que no se ven, pero son muy importantes. -->
 <head>
+    <!-- Esto ayuda a la computadora a entender letras especiales como la 'ñ' y los acentos. -->
     <meta charset="UTF-8">
+    <!-- Esto hace que nuestra página se vea bien en teléfonos y tabletas, no solo en pantallas grandes. 📱💻 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- El título que aparece en la pestaña del navegador. -->
     <title>didakus | Soluciones Inteligentes de Datos y Automatización</title>
     
-    <!-- Google Fonts -->
+    <!-- ¡Vamos a pedir prestadas unas letras geniales de Google para que nuestros títulos y textos se vean bonitos! 🎨 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome for Icons -->
+    <!-- También pediremos prestados unos iconos (dibujitos) para decorar nuestra página, como estrellas y cohetes. ⭐🚀 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <!-- Aquí empieza la magia de la decoración (CSS). Le diremos a cada pieza cómo debe verse. -->
     <style>
-        /* --- Reset y Variables Globales --- */
+        /* --- 🎨 ¡Nuestra Paleta de Colores y Reglas Mágicas! --- */
         :root {
-            --primary-color: #121212; /* Negro Intenso */
-            --secondary-color: #D32F2F; /* Rojo Profesional */
-            --accent-color: #E0E0E0;   /* Gris claro para acentos */
-            --light-bg: #F5F5F5;
-            --white: #ffffff;
-            --text-color: #333333;
-            --light-text: #FAFAFA;
+            /* Aquí guardamos nuestros colores favoritos en cajitas con nombres para usarlos después. */
+            --primary-color: #121212;   /* Un negro muy oscuro, como el espacio. ⚫ */
+            --secondary-color: #D32F2F; /* Un rojo elegante y llamativo. 🔴 */
+            --accent-color: #E0E0E0;    /* Un gris muy clarito. */
+            --light-bg: #F5F5F5;        /* Un fondo casi blanco, para que no canse la vista. */
+            --white: #ffffff;           /* Blanco puro. ⚪ */
+            --text-color: #333333;      /* El color para la mayoría de nuestros textos. */
+            --light-text: #FAFAFA;      /* Un texto clarito para fondos oscuros. */
         }
 
+        /* La estrella (*) es una varita mágica que le aplica estas reglas a TODO en la página. */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
+            margin: 0; /* Quita todos los espacios de los bordes. */
+            padding: 0; /* Quita todo el relleno interior. */
+            box-sizing: border-box; /* ¡Magia! Las cajas no crecen si les ponemos borde. */
+            scroll-behavior: smooth; /* Para que al hacer clic en un link, la página baje suavemente. ✨ */
         }
 
+        /* Le damos estilo al "cuerpo" entero de nuestra página web. */
         body {
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.7;
-            color: var(--text-color);
-            background-color: var(--white);
+            font-family: 'Open Sans', sans-serif; /* El tipo de letra que usaremos para los párrafos. */
+            line-height: 1.7; /* El espacio entre una línea de texto y la siguiente. */
+            color: var(--text-color); /* Usamos el color de texto que guardamos en nuestra paleta. */
+            background-color: var(--white); /* El color de fondo de toda la página. */
         }
 
+        /* Un "contenedor" es como una caja invisible para mantener todo nuestro contenido centrado y ordenado. */
         .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
+            width: 90%; /* Que la caja ocupe el 90% del ancho de la pantalla. */
+            max-width: 1100px; /* Pero que nunca sea más ancha que 1100 pixeles. */
+            margin: auto; /* Esto la centra automáticamente. */
         }
 
+        /* Reglas para todos nuestros títulos. */
         h1, h2, h3 {
-            font-family: 'Roboto', sans-serif;
-            color: var(--primary-color);
-            font-weight: 700;
+            font-family: 'Roboto', sans-serif; /* Usamos nuestra otra letra chula para los títulos. */
+            color: var(--primary-color); /* Usamos el color negro oscuro. */
+            font-weight: 700; /* Hacemos la letra un poco más "gordita" (negrita). */
         }
-
+        
+        /* Reglas especiales solo para los títulos de tipo h2. */
         h2 {
-            font-size: 2.8rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            font-weight: 900;
+            font-size: 2.8rem; /* Un tamaño de letra bien grande. */
+            text-align: center; /* Centramos el título. */
+            margin-bottom: 1rem; /* Le damos un poquito de espacio por debajo. */
+            font-weight: 900; /* ¡Aún más gordita la letra! */
         }
 
+        /* Para los subtítulos que van debajo de los títulos grandes. */
         .section-subtitle {
-            text-align: center;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 4rem auto;
-            color: #616161;
+            text-align: center; /* También centrado. */
+            font-size: 1.1rem; /* Un poco más grande que el texto normal. */
+            max-width: 700px; /* Para que no sea una línea de texto súper larga. */
+            margin: 0 auto 4rem auto; /* Lo centramos y le damos mucho espacio por debajo. */
+            color: #616161; /* Un color de texto gris. */
         }
 
-        /* --- Navegación --- */
+        /* --- 🗺️ Decorando nuestro Menú de Navegación --- */
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(5px);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            transition: background 0.3s ease;
+            background: rgba(255, 255, 255, 0.95); /* Fondo blanco un poquito transparente. */
+            backdrop-filter: blur(5px); /* Un efecto de vidrio esmerilado en el fondo. ¡Qué pro! */
+            padding: 1rem 0; /* Espacio por arriba y por abajo. */
+            position: fixed; /* ¡Esto lo deja pegado arriba aunque bajemos en la página! */
+            width: 100%; /* Que ocupe todo el ancho. */
+            top: 0; /* Pegado a la parte de arriba. */
+            left: 0; /* Pegado a la parte de la izquierda. */
+            z-index: 1000; /* Como una capa mágica que lo pone por encima de todo lo demás. */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Una sombrita suave para que parezca que flota. */
+            transition: background 0.3s ease; /* Cualquier cambio de color será suavecito. */
         }
 
+        /* El contenedor dentro de nuestro menú. */
         .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; /* Ponemos los elementos (logo y links) uno al lado del otro. */
+            justify-content: space-between; /* Empuja el logo a la izquierda y los links a la derecha. */
+            align-items: center; /* Los alinea verticalmente en el centro. */
         }
 
+        /* El logo de la página. */
         .navbar .logo {
-            font-size: 2rem;
-            font-weight: 900;
-            color: var(--primary-color);
-            text-decoration: none;
+            font-size: 2rem; /* Letra grande. */
+            font-weight: 900; /* ¡Súper negrita! */
+            color: var(--primary-color); /* Color negro. */
+            text-decoration: none; /* Le quitamos el subrayado que tienen los links. */
         }
+        /* El puntito del logo. */
         .navbar .logo span {
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* ¡Lo pintamos de nuestro color rojo! */
         }
 
+        /* La lista de enlaces del menú. */
         .navbar .nav-links {
-            list-style: none;
-            display: flex;
+            list-style: none; /* Le quitamos los puntitos de lista. */
+            display: flex; /* Los ponemos uno al lado del otro. */
         }
-
+        
+        /* Cada elemento de la lista. */
         .navbar .nav-links li {
-            margin-left: 2.5rem;
+            margin-left: 2.5rem; /* Separamos los enlaces entre sí. */
         }
-
+        
+        /* Los enlaces del menú (las palabras en las que haces clic). */
         .navbar .nav-links a {
-            text-decoration: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 5px;
-            font-size: 1rem;
+            text-decoration: none; /* Sin subrayado. */
+            color: var(--primary-color); /* Color negro. */
+            font-weight: 600; /* Letra un poco negrita. */
+            position: relative; /* Necesario para el truco de la línea de abajo. */
+            padding-bottom: 5px; /* Espacio para que quepa la línea. */
+            font-size: 1rem; /* Tamaño de letra normal. */
         }
         
+        /* TRUCO MÁGICO: una línea que aparece debajo del enlace. */
         .navbar .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 3px;
-            background: var(--secondary-color);
-            transition: width 0.3s ease;
+            content: ''; /* Creamos algo de la nada. */
+            position: absolute; /* Lo podemos mover a donde queramos. */
+            bottom: 0; /* Lo pegamos abajo del todo. */
+            left: 50%; /* Lo ponemos justo en el medio. */
+            transform: translateX(-50%); /* Lo centramos perfectamente. */
+            width: 0; /* Al principio, la línea no tiene ancho (es invisible). */
+            height: 3px; /* Será de 3 pixeles de alto. */
+            background: var(--secondary-color); /* ¡Será de color rojo! */
+            transition: width 0.3s ease; /* La animación para que crezca suavemente. */
         }
 
+        /* Cuando pasamos el ratón por encima del enlace... */
         .navbar .nav-links a:hover::after {
-            width: 100%;
+            width: 100%; /* ¡La línea crece hasta ocupar todo el ancho! */
         }
 
-        /* --- Hero Section --- */
+        /* --- 👋 La Gran Bienvenida (Sección Hero) --- */
         #hero {
-            background: var(--primary-color);
-            color: var(--light-text);
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding-top: 60px; /* Offset for navbar */
-        }
-
-        #hero .hero-content {
-            max-width: 850px;
-        }
-
-        #hero h1 {
-            font-size: 4.5rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            color: var(--white);
-            line-height: 1.1;
+            background: var(--primary-color); /* Fondo negro oscuro. */
+            color: var(--light-text); /* Texto de color clarito. */
+            height: 100vh; /* ¡Que ocupe TODA la altura de la pantalla! */
+            display: flex; /* Usamos flex para centrar el contenido. */
+            align-items: center; /* Centrado vertical. */
+            justify-content: center; /* Centrado horizontal. */
+            text-align: center; /* El texto dentro también estará centrado. */
+            padding-top: 60px; /* Un empujoncito hacia abajo para que no choque con el menú. */
         }
         
+        /* El contenido de la bienvenida. */
+        #hero .hero-content {
+            max-width: 850px; /* Para que el texto no sea demasiado ancho en pantallas grandes. */
+        }
+
+        /* El título principal de la página (H1). */
+        #hero h1 {
+            font-size: 4.5rem; /* ¡Letra GIGANTE! */
+            font-weight: 900;
+            margin-bottom: 1rem; /* Espacio por debajo. */
+            color: var(--white); /* Color blanco. */
+            line-height: 1.1; /* Juntamos un poquito las líneas del título. */
+        }
+        
+        /* El puntito del título principal. */
         #hero h1 span {
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* ¡De color rojo! */
         }
 
+        /* El párrafo de bienvenida. */
         #hero p {
-            font-size: 1.4rem;
-            font-weight: 400;
-            margin-bottom: 2.5rem;
-            color: var(--accent-color);
+            font-size: 1.4rem; /* Letra grandecita. */
+            font-weight: 400; /* Letra normal (no negrita). */
+            margin-bottom: 2.5rem; /* Bastante espacio por debajo. */
+            color: var(--accent-color); /* Color gris clarito. */
         }
-
-        .btn {
-            display: inline-block;
-            padding: 1rem 3rem;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            font-family: 'Roboto', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background: var(--secondary-color);
+        
+        /* Estilo para el eslogan de la consulta gratis */
+        #hero .free-consult-slogan {
+            font-size: 1.2rem;
+            font-weight: 600;
             color: var(--white);
-            border-color: var(--secondary-color);
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 1rem;
+            border: 1px solid var(--secondary-color);
+            margin-bottom: 2.5rem;
         }
 
+        /* --- 🔘 Estilo para nuestros Botones --- */
+        .btn {
+            display: inline-block; /* Se comporta como texto pero podemos darle tamaño. */
+            padding: 1rem 3rem; /* Mucho relleno para que sea un botón grande y cómodo. */
+            border-radius: 5px; /* Bordes redondeados. */
+            text-decoration: none; /* Sin subrayado. */
+            font-weight: 700; /* Letra negrita. */
+            transition: all 0.3s ease; /* Todas las animaciones serán suaves. */
+            border: 2px solid transparent; /* Un borde invisible (por ahora). */
+            font-family: 'Roboto', sans-serif; /* La letra de los títulos. */
+            text-transform: uppercase; /* ¡TODO EN MAYÚSCULAS! */
+            letter-spacing: 1px; /* Un poquito de espacio entre las letras. */
+        }
+        
+        /* El botón principal (el rojo). */
+        .btn-primary {
+            background: var(--secondary-color); /* Fondo rojo. */
+            color: var(--white); /* Letras blancas. */
+            border-color: var(--secondary-color); /* El borde es rojo también. */
+        }
+        
+        /* Cuando pasamos el ratón por encima del botón rojo... */
         .btn-primary:hover {
-            background: var(--white);
-            color: var(--secondary-color);
-            transform: scale(1.05);
+            background: var(--white); /* El fondo se vuelve blanco. */
+            color: var(--secondary-color); /* Las letras se vuelven rojas. */
+            transform: scale(1.05); /* ¡Se hace un poquito más grande! */
         }
 
-        /* --- About Section --- */
+        /* --- 🧑‍💻 Sección "Sobre Mí" --- */
         #about {
-            padding: 6rem 0;
-            background: var(--light-bg);
+            padding: 6rem 0; /* Mucho espacio por arriba y por abajo. */
+            background: var(--light-bg); /* Fondo gris muy clarito. */
         }
-
+        
+        /* Aquí organizaremos la foto y el texto. */
         #about .about-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            align-items: center;
-            gap: 4rem;
+            display: grid; /* Usamos una "parrilla" para organizarlo. */
+            grid-template-columns: 1fr 2fr; /* Dividimos el espacio en dos columnas: una para la foto y otra (más ancha) para el texto. */
+            align-items: center; /* Centramos verticalmente la foto y el texto. */
+            gap: 4rem; /* Un buen espacio entre la foto y el texto. */
         }
-
+        
+        /* La foto. */
         #about .about-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            width: 100%; /* La imagen ocupa todo el ancho de su columna. */
+            border-radius: 10px; /* Bordes redondeados. */
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* Una sombra bonita para que resalte. */
         }
 
         #about h3 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.2rem; /* Título de la sección. */
+            margin-bottom: 1.5rem; /* Espacio debajo. */
         }
         
         #about p {
-            margin-bottom: 1rem;
+            margin-bottom: 1rem; /* Espacio entre párrafos. */
         }
 
-        /* --- Services Section --- */
+        /* --- 🛠️ Sección de Soluciones (Servicios) --- */
         #services {
-            padding: 6rem 0;
-            background: var(--white);
+            padding: 6rem 0; /* Mucho espacio vertical. */
+            background: var(--white); /* Fondo blanco. */
         }
 
+        /* La parrilla donde irán las tarjetas de servicios. */
         .services-grid {
-            display: grid;
+            display: grid; /* ¡Otra parrilla! */
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 2rem; /* Espacio entre las tarjetas. */
         }
 
+        /* Cada una de las tarjetas de servicio. */
         .service-card {
-            background: var(--white);
-            padding: 2.5rem;
-            border: 1px solid #ddd;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            background: var(--white); /* Fondo blanco. */
+            padding: 2.5rem; /* Relleno interior. */
+            border: 1px solid #ddd; /* Un borde finito y gris. */
+            text-align: center; /* Centramos todo el contenido. */
+            border-radius: 10px; /* Bordes redondeados. */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03); /* Una sombra muy, muy suave. */
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
+        /* Cuando pasamos el ratón por la tarjeta... */
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border-color: var(--secondary-color);
+            transform: translateY(-10px); /* ¡La tarjeta sube un poquito! */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); /* La sombra se hace más grande y oscura. */
+            border-color: var(--secondary-color); /* ¡El borde se vuelve rojo! */
         }
 
         .service-card .icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
+            font-size: 3rem; /* El icono (dibujito) será grande. */
+            color: var(--secondary-color); /* De color rojo. */
+            margin-bottom: 1.5rem; /* Espacio debajo. */
         }
 
         .service-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.5rem; /* El título de la tarjeta. */
             margin-bottom: 1rem;
         }
         
-        /* --- Testimonials Section --- */
+        /* --- 💬 Sección de Testimonios (Lo que dicen otros) --- */
         #testimonials {
             padding: 6rem 0;
-            background: var(--primary-color);
+            background: var(--primary-color); /* Fondo negro oscuro. */
         }
         
         #testimonials h2 {
-            color: var(--white);
+            color: var(--white); /* Título grande en color blanco. */
         }
 
         #testimonials .section-subtitle {
-            color: var(--accent-color);
+            color: var(--accent-color); /* Subtítulo en gris clarito. */
         }
-
+        
+        /* Parrilla para los testimonios. */
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
+        /* Cada tarjeta de testimonio. */
         .testimonial-card {
-            background: var(--white);
+            background: var(--white); /* Fondo blanco. */
             padding: 2rem;
             border-radius: 10px;
-            display: flex;
-            flex-direction: column;
+            display: flex; /* Para poder ordenar el contenido de arriba a abajo. */
+            flex-direction: column; /* Ordenamos como una columna. */
         }
 
+        /* Las estrellitas. */
         .testimonial-card .stars {
-            color: #FFC107; /* Amarillo para estrellas */
+            color: #FFC107; /* Color amarillo para las estrellas. ⭐ */
             margin-bottom: 1rem;
         }
         
         .testimonial-card .stars i {
-            margin-right: 2px;
+            margin-right: 2px; /* Pequeño espacio entre estrellas. */
         }
 
+        /* El párrafo con la opinión. */
         .testimonial-card p.quote {
-            font-style: italic;
+            font-style: italic; /* Letra cursiva. */
             margin-bottom: 1.5rem;
-            flex-grow: 1; /* Asegura que las tarjetas tengan la misma altura */
+            flex-grow: 1;
         }
-
+        
+        /* El nombre de quien da el testimonio. */
         .testimonial-card p.author {
-            font-weight: 700;
-            color: var(--primary-color);
-            align-self: flex-end;
+            font-weight: 700; /* Letra negrita. */
+            color: var(--primary-color); /* Color negro. */
+            align-self: flex-end; /* Lo alineamos a la derecha. */
         }
 
-
-        /* --- Call to Action Section --- */
+        /* --- 📢 Sección de Llamada a la Acción --- */
         #cta {
-            background: linear-gradient(rgba(211, 47, 47, 0.9), rgba(211, 47, 47, 0.9)), url('https://placehold.co/1920x1080/D32F2F/ffffff?text=Tech+Background') no-repeat center center/cover;
-            color: var(--light-text);
+            background: linear-gradient(rgba(211, 47, 47, 0.9), rgba(211, 47, 47, 0.9)), url('https://placehold.co/1920x1080/D32F2F/ffffff?text=Fondo+Tecnológico') no-repeat center center/cover;
+            color: var(--light-text); /* Texto clarito. */
             padding: 6rem 0;
-            text-align: center;
+            text-align: center; /* Todo centrado. */
         }
 
         #cta h2 {
-            color: var(--white);
+            color: var(--white); /* Título blanco. */
             font-size: 2.5rem;
             margin-bottom: 1rem;
         }
@@ -324,27 +375,27 @@
         #cta p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            color: var(--white);
+            color: var(--white); /* Párrafo blanco. */
             max-width: 700px;
-            margin-left: auto;
+            margin-left: auto; /* Centramos el párrafo. */
             margin-right: auto;
         }
         
         #cta .btn-primary {
-            background: var(--white);
-            color: var(--secondary-color);
-            border-color: var(--white);
+            background: var(--white); /* Fondo blanco. */
+            color: var(--secondary-color); /* Letras rojas. */
+            border-color: var(--white); /* Borde blanco. */
         }
         
         #cta .btn-primary:hover {
-            background: transparent;
-            color: var(--white);
+            background: transparent; /* ¡El fondo se vuelve transparente! */
+            color: var(--white); /* Las letras se vuelven blancas. */
         }
-
-        /* --- Contact Section --- */
+        
+        /* --- 📞 Sección de Contacto --- */
         #contact {
             padding: 6rem 0;
-            background: var(--light-bg);
+            background: var(--light-bg); /* Fondo gris clarito. */
         }
         
         .contact-grid {
@@ -354,20 +405,20 @@
             text-align: center;
             margin-top: 3rem;
         }
-
+        
         .contact-item {
             padding: 2.5rem;
         }
         
         .contact-item .icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
+            font-size: 3rem; /* Icono grande. */
+            color: var(--secondary-color); /* Color rojo. */
             margin-bottom: 1rem;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease; /* Animación suave. */
         }
         
         .contact-item:hover .icon {
-            transform: scale(1.2);
+            transform: scale(1.2); /* ¡El icono se hace más grande! */
         }
 
         .contact-item h3 {
@@ -376,39 +427,38 @@
         }
 
         .contact-item a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            word-break: break-all;
-            display: block; /* Para que cada email ocupe su línea */
+            color: var(--text-color); /* Color de texto normal. */
+            text-decoration: none; /* Sin subrayado. */
+            font-weight: 600; /* Letra un poco negrita. */
+            transition: color 0.3s ease; /* Animación de color suave. */
+            word-break: break-all; /* Si un email es muy largo, se puede partir. */
+            display: block; /* Para que cada email ocupe su propia línea. */
             margin-top: 0.5rem;
         }
         
         .contact-item a:hover {
-            color: var(--secondary-color);
+            color: var(--secondary-color); /* ¡Se vuelve rojo! */
         }
 
-
-        /* --- Footer --- */
+        /* --- 👇 El Pie de Página --- */
         footer {
-            background: var(--primary-color);
-            color: var(--accent-color);
+            background: var(--primary-color); /* Fondo negro oscuro. */
+            color: var(--accent-color); /* Texto gris clarito. */
             text-align: center;
             padding: 2.5rem 0;
         }
         
         footer p {
-            font-size: 0.9rem;
+            font-size: 0.9rem; /* Letra pequeñita. */
         }
-
-        /* --- Responsive Design --- */
+        
+        /* --- 📱 Reglas Especiales para Pantallas Pequeñas (Como Teléfonos) --- */
         @media (max-width: 768px) {
-            h2 { font-size: 2.2rem; }
-            #hero h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.2rem; } 
+            #hero h1 { font-size: 2.8rem; } 
             #hero p { font-size: 1.2rem; }
 
-            .navbar .nav-links { display: none; } /* Simple hide for mobile, can be replaced with a burger menu */
+            .navbar .nav-links { display: none; } 
 
             #about .about-content {
                 grid-template-columns: 1fr;
@@ -420,12 +470,13 @@
                 grid-template-columns: 1fr;
             }
         }
-
     </style>
 </head>
+
+<!-- ¡Aquí empieza el contenido visible de nuestra página! Son nuestros bloques de LEGO. -->
 <body>
 
-    <!-- NAVEGACIÓN -->
+    <!-- 🗺️ EL MAPA DEL SITIO (MENÚ DE NAVEGACIÓN) -->
     <nav class="navbar">
         <div class="container">
             <a href="#hero" class="logo">didakus<span>.</span></a>
@@ -438,84 +489,87 @@
         </div>
     </nav>
 
-    <!-- SECCIÓN HERO -->
+    <!-- 👋 LA GRAN BIENVENIDA -->
     <section id="hero">
         <div class="hero-content container">
             <h1>Decisiones Inteligentes<span>.</span> <br>Resultados Reales<span>.</span></h1>
-            <p>Transformamos sus datos en su activo más poderoso. Descubra el potencial de su negocio con soluciones de alto impacto.</p>
-            <a href="#services" class="btn btn-primary">Ver Soluciones</a>
+            <p>Transformamos tus datos en tu activo más valioso. Descubre el potencial oculto de tu negocio con soluciones de alto impacto.</p>
+            <p class="free-consult-slogan">Tu primera consulta de diagnóstico es <strong>GRATIS</strong></p>
+            <a href="#contact" class="btn btn-primary">Agendar Consulta Gratuita</a>
         </div>
     </section>
 
-    <!-- SECCIÓN SOBRE MÍ -->
+    <!-- 🧑‍💻 SECCIÓN "SOBRE MÍ" -->
     <section id="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-image">
-                    <!-- La ruta de la imagen ha sido corregida aquí -->
-                    <img src="foto-diego.png" alt="Foto de Diego Hernández">
+                    <img src="https://placehold.co/400x400/eeeeee/333333?text=Foto+de+Diego" alt="Foto de Diego Hernández, el creador de la página." onerror="this.onerror=null;this.src='https://placehold.co/400x400/eeeeee/333333?text=Imagen+no+encontrada';">
                 </div>
                 <div class="about-text">
                     <h3>Sobre Mí</h3>
                     <p>
-                        Soy <strong>Diego Alejandro Hernández Blanco</strong>, Ingeniero Metalúrgico y Científico de Datos con una profunda vocación por resolver problemas complejos. Mi experiencia en el <strong>campo industrial</strong> me ha proporcionado una perspectiva única, permitiéndome entender los procesos desde adentro para aplicar soluciones de datos que generan un impacto real y medible.
+                        Soy <strong>Diego Alejandro Hernández Blanco</strong>, Ingeniero y Científico de Datos apasionado por resolver problemas complejos.
                     </p>
                     <p>
-                        Mi enfoque no es solo ofrecer un servicio, sino una visión estratégica. Combino el rigor de la ingeniería con la agilidad de la ciencia de datos para optimizar operaciones, mejorar la calidad y descubrir nuevas oportunidades de crecimiento. Mi certificación como auditor interno (ISO 9001, 14001, 45001) respalda mi compromiso con la excelencia y la mejora continua en cada proyecto.
+                        Mi experiencia en el <strong>campo industrial</strong> me da una perspectiva única. Combino el rigor de la ingeniería con la agilidad de la ciencia de datos para optimizar operaciones, mejorar la calidad y descubrir nuevas oportunidades de crecimiento. No solo ofrezco un servicio, sino una visión estratégica para tu negocio.
+                    </p>
+                     <p>
+                        Mi compromiso con la excelencia y la mejora continua está respaldado por certificaciones como auditor interno (ISO 9001, 14001, 45001), garantizando la máxima calidad en cada proyecto.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
+    <!-- 🛠️ SECCIÓN DE SOLUCIONES (SERVICIOS) -->
     <section id="services">
         <div class="container">
             <h2>Nuestras Soluciones</h2>
-            <p class="section-subtitle">Impulsamos su negocio con un portafolio de servicios diseñados para generar impacto medible y sostenible.</p>
+            <p class="section-subtitle">Un portafolio de servicios diseñados para generar un impacto medible y sostenible en tu negocio.</p>
             
             <div class="services-grid">
-                <!-- Servicio 1 -->
+                <!-- Tarjeta de Servicio 1 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Inteligencia de Negocios (BI)</h3>
-                    <p>Convierta datos crudos en dashboards dinámicos y visualizaciones impactantes. Monitoree sus KPIs en tiempo real y tome decisiones basadas en evidencia.</p>
+                    <p>Transformamos datos crudos en dashboards dinámicos para que monitorees tus KPIs en tiempo real y tomes decisiones basadas en evidencia.</p>
                 </div>
-                <!-- Servicio 2 -->
+                <!-- Tarjeta de Servicio 2 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-robot"></i></div>
                     <h3>Automatización Inteligente (RPA)</h3>
-                    <p>Liberamos el potencial de su equipo automatizando procesos repetitivos. Aumente la productividad, elimine errores humanos y reduzca costos operativos.</p>
+                    <p>Liberamos a tu equipo de tareas repetitivas mediante la Automatización Robótica de Procesos, aumentando la productividad y reduciendo errores.</p>
                 </div>
-                <!-- Servicio 3 -->
+                <!-- Tarjeta de Servicio 3 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-server"></i></div>
                     <h3>Arquitectura de Datos</h3>
-                    <p>Diseñamos y gestionamos la infraestructura de datos (SQL, PostgreSQL) que su empresa necesita para crecer. Garantizamos seguridad, rendimiento y escalabilidad.</p>
+                    <p>Diseñamos la infraestructura de datos (SQL, PostgreSQL) que tu empresa necesita para crecer: segura, de alto rendimiento y escalable.</p>
                 </div>
-                <!-- Servicio 4 -->
+                <!-- Tarjeta de Servicio 4 -->
                 <div class="service-card">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Análisis Predictivo</h3>
-                    <p>Vamos un paso adelante. Usamos Python, R y machine learning para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven.</p>
+                    <p>Usamos machine learning para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven. Adelántate al futuro.</p>
                 </div>
-                 <!-- Servicio 5 -->
+                 <!-- Tarjeta de Servicio 5 -->
                  <div class="service-card">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Integridad de Activos y Datos</h3>
-                    <p>Fusionamos la ingeniería con la ciencia de datos para crear programas que optimizan la vida útil de sus activos, analizan fallas y aseguran la calidad de su información.</p>
+                    <p>Fusionamos la ingeniería y la ciencia de datos para optimizar la vida útil de tus activos, analizar fallas y asegurar la calidad de tu información.</p>
                 </div>
-                 <!-- Servicio 6 -->
+                 <!-- Tarjeta de Servicio 6 -->
                  <div class="service-card">
                     <div class="icon"><i class="fas fa-laptop-code"></i></div>
-                    <h3>Desarrollo de Soluciones a Medida</h3>
-                    <p>Creamos las herramientas que su negocio necesita. Desde aplicaciones web internas hasta sistemas de gestión personalizados, enfocados en sus desafíos únicos.</p>
+                    <h3>Desarrollo a Medida</h3>
+                    <p>Creamos las herramientas y aplicaciones que tu negocio realmente necesita, con un enfoque en resolver tus desafíos únicos.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE TESTIMONIOS -->
+    <!-- 💬 SECCIÓN DE TESTIMONIOS -->
     <section id="testimonials">
         <div class="container">
             <h2>Experiencia con Organizaciones Líderes</h2>
@@ -549,16 +603,16 @@
         </div>
     </section>
 
-    <!-- SECCIÓN CALL TO ACTION -->
+    <!-- 📢 SECCIÓN DE LLAMADA A LA ACCIÓN -->
     <section id="cta">
         <div class="container">
-            <h2>¿Listo para transformar su negocio?</h2>
-            <p>El primer paso hacia la optimización es una conversación. Agendemos una consulta y descubramos juntos el potencial oculto en sus datos.</p>
-            <a href="#contact" class="btn btn-primary">Agendar Consulta</a>
+            <h2>¿Listo para dar el primer paso?</h2>
+            <p>El camino hacia la optimización comienza con una conversación. Agenda tu consulta de diagnóstico gratuita y descubramos juntos el potencial oculto en tus datos.</p>
+            <a href="#contact" class="btn btn-primary">Agendar Consulta GRATIS</a>
         </div>
     </section>
 
-    <!-- SECCIÓN DE CONTACTO -->
+    <!-- 📞 SECCIÓN DE CONTACTO -->
     <section id="contact">
         <div class="container">
             <h2>Iniciemos la Conversación</h2>
@@ -579,14 +633,13 @@
                 <div class="contact-item">
                      <div class="icon"><i class="fab fa-linkedin"></i></div>
                     <h3>LinkedIn</h3>
-                    <!-- Reemplazar '#' con el enlace a tu perfil de LinkedIn -->
                     <a href="https://www.linkedin.com/in/diego-alejandro-hernandez-blanco-08b64120b" target="_blank">Diego A. Hernández Blanco</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
+    <!-- 👇 EL PIE DE PÁGINA -->
     <footer>
         <div class="container">
             <p>&copy; 2025 didakus. Una marca de Diego Hernández Blanco. Todos los derechos reservados.</p>
