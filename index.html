@@ -1,21 +1,26 @@
-<!DOCTYPE html> 
-<html lang="es"> 
+<!DOCTYPE html>
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>didakus | Soluciones Inteligentes de Datos y Automatización</title>
+    <title>didakus | Analytica Industrial - Soluciones de Datos</title>
     
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Chart.js for animated charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         :root {
             --primary-color: #121212;
-            --secondary-color: #D32F2F;
+            --secondary-color: #D32F2F; /* Un rojo más corporativo y fuerte */
             --accent-color: #E0E0E0;
             --light-bg: #F5F5F5;
             --white: #ffffff;
@@ -91,10 +96,20 @@
             font-weight: 900; 
             color: var(--primary-color); 
             text-decoration: none; 
+            display: flex;
+            align-items: baseline;
         }
         
-        .navbar .logo span {
+        .navbar .logo .brand-name span {
             color: var(--secondary-color); 
+        }
+
+        .navbar .logo .tagline {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-color);
+            margin-left: 0.75rem;
+            opacity: 0.8;
         }
 
         .navbar .nav-links {
@@ -159,11 +174,11 @@
         }
 
         #hero h1 {
-            font-size: 4.5rem; 
+            font-size: 4.2rem; /* Ajustado para mejor legibilidad */
             font-weight: 900;
             margin-bottom: 1rem; 
             color: var(--white); 
-            line-height: 1.1; 
+            line-height: 1.2; 
         }
 
         #hero h1 .line {
@@ -190,13 +205,16 @@
         }
 
         #hero p {
-            font-size: 1.4rem; 
+            font-size: 1.3rem; /* Ajustado para el nuevo texto */
             font-weight: 400; 
             margin-bottom: 1.5rem; 
             color: var(--accent-color); 
             opacity: 0;
             animation: fadeInDown 1s forwards;
             animation-delay: 2.5s;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         #hero .free-consult-slogan {
@@ -258,13 +276,13 @@
             transform: translateY(0);
         }
 
-        .testimonial-card, .contact-item {
+        .testimonial-card, .contact-item, .value-prop-item {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         
-        .is-visible .testimonial-card, .is-visible .contact-item {
+        .is-visible .testimonial-card, .is-visible .contact-item, .is-visible .value-prop-item {
             opacity: 1;
             transform: translateY(0);
         }
@@ -337,6 +355,50 @@
             margin-bottom: 1rem;
         }
         
+        /* --- SECCIÓN: Mi Propuesta de Valor --- */
+        #value-prop {
+            padding: 6rem 0;
+            background: var(--light-bg);
+        }
+
+        .value-prop-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            align-items: stretch;
+        }
+
+        .value-prop-item {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .value-prop-item h3 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .value-prop-item p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 280px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* --- Sección Testimonios --- */
         #testimonials {
             padding: 6rem 0;
             background: var(--primary-color); 
@@ -382,9 +444,12 @@
         .testimonial-card p.author {
             font-weight: 700; 
             color: var(--primary-color); 
-            align-self: flex-end; 
+            align-self: flex-start;
+            font-style: normal;
+            margin-top: auto; 
         }
 
+        /* --- Call to Action --- */
         #cta {
             background: var(--secondary-color);
             color: var(--light-text); 
@@ -418,6 +483,7 @@
             color: var(--white); 
         }
         
+        /* --- Contacto --- */
         #contact {
             padding: 6rem 0;
             background: var(--light-bg); 
@@ -461,6 +527,7 @@
             color: var(--secondary-color); 
         }
 
+        /* --- Footer --- */
         footer {
             background: var(--primary-color); 
             color: var(--accent-color); 
@@ -472,6 +539,7 @@
             font-size: 0.9rem; 
         }
         
+        /* --- Botones Flotantes --- */
         .floating-action-buttons {
             position: fixed;
             bottom: 25px;
@@ -506,14 +574,22 @@
         .fab-linkedin { background-color: var(--linkedin-blue); }
         .fab-email { background-color: var(--secondary-color); }
 
+        /* --- Media Queries para Responsividad --- */
+        @media (max-width: 992px) {
+            .value-prop-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             h2 { font-size: 2.2rem; } 
             #hero h1 { font-size: 2.8rem; } 
             #hero p { font-size: 1.2rem; }
             .navbar .nav-links { display: none; } 
+            .navbar .logo .tagline { display: none; } /* Ocultar tagline en móvil */
             #about .about-content { text-align: left; }
             #about h3 { text-align: center; }
-            .contact-grid, .testimonials-grid { grid-template-columns: 1fr; }
+            .contact-grid, .testimonials-grid, .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -522,10 +598,14 @@
 
     <nav class="navbar">
         <div class="container">
-            <a href="#hero" class="logo">didakus<span>.</span></a>
+            <a href="#hero" class="logo">
+                <span class="brand-name">didakus<span>.</span></span>
+                <span class="tagline">| Analytica Industrial</span>
+            </a>
             <ul class="nav-links">
                 <li><a href="#about">Sobre Mí</a></li>
                 <li><a href="#services">Soluciones</a></li>
+                <li><a href="#value-prop">Mi Valor</a></li>
                 <li><a href="#testimonials">Experiencia</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
@@ -535,10 +615,10 @@
     <section id="hero">
         <div class="hero-content container">
             <h1>
-                <span class="line line-1">Decisiones Inteligentes<span>.</span></span>
-                <span class="line line-2">Resultados Reales<span>.</span></span>
+                <span class="line line-1">Soluciones de Datos<span>.</span></span>
+                <span class="line line-2">A la Medida de tu Negocio<span>.</span></span>
             </h1>
-            <p>Transformamos tus datos en tu activo más valioso. Descubre el potencial oculto de tu negocio con soluciones de alto impacto.</p>
+            <p>No vendemos un producto, creamos una alianza estratégica. Analizamos los desafíos únicos de tu organización y desarrollamos soluciones personalizadas de datos, automatización e inteligencia artificial para impulsar tu crecimiento y eficiencia.</p>
             <p class="free-consult-slogan">Tu primera consulta de diagnóstico es <strong>GRATIS</strong></p>
             <a href="#contact" class="btn btn-primary">Agendar Consulta Gratuita</a>
         </div>
@@ -563,38 +643,38 @@
         </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="animated-section">
         <div class="container">
             <h2>Nuestras Soluciones</h2>
             <p class="section-subtitle">Un portafolio de servicios diseñados para generar un impacto medible y sostenible en tu negocio.</p>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Inteligencia de Negocios (BI)</h3>
                     <p>Transformamos datos crudos en dashboards dinámicos para que monitorees tus KPIs en tiempo real y tomes decisiones basadas en evidencia.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-robot"></i></div>
                     <h3>Automatización Inteligente (RPA)</h3>
                     <p>Liberamos a tu equipo de tareas repetitivas mediante la Automatización Robótica de Procesos, aumentando la productividad y reduciendo errores.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-server"></i></div>
                     <h3>Arquitectura de Datos</h3>
                     <p>Diseñamos la infraestructura de datos (SQL, PostgreSQL) que tu empresa necesita para crecer: segura, de alto rendimiento y escalable.</p>
                 </div>
-                <div class="service-card">
+                <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Análisis Predictivo</h3>
                     <p>Usamos machine learning para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven. Adelántate al futuro.</p>
                 </div>
-                 <div class="service-card">
+                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
                     <h3>Integridad de Activos y Datos</h3>
                     <p>Fusionamos la ingeniería y la ciencia de datos para optimizar la vida útil de tus activos, analizar fallas y asegurar la calidad de tu información.</p>
                 </div>
-                 <div class="service-card">
+                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-laptop-code"></i></div>
                     <h3>Desarrollo a Medida</h3>
                     <p>Creamos las herramientas y aplicaciones que tu negocio realmente necesita, con un enfoque en resolver tus desafíos únicos.</p>
@@ -603,9 +683,53 @@
         </div>
     </section>
 
+    <!-- ========= SECCIÓN DE VALOR ACTUALIZADA CON 4 ELEMENTOS ========= -->
+    <section id="value-prop" class="animated-section">
+        <div class="container">
+            <h2>Mi Propuesta de Valor: De Datos a Decisiones</h2>
+            <p class="section-subtitle">No solo analizo datos; construyo puentes hacia la eficiencia, la rentabilidad y el crecimiento estratégico. Así es como transformo el potencial de tu negocio en resultados concretos.</p>
+            
+            <div class="value-prop-grid">
+                <!-- Elemento 1 -->
+                <div class="value-prop-item animated-item">
+                    <h3><i class="fas fa-rocket"></i> Impulso a la Productividad</h3>
+                    <p>Mediante herramientas estadísticas y automatización, eliminamos cuellos de botella y optimizamos flujos de trabajo. El resultado es un equipo más ágil y enfocado en lo que realmente importa.</p>
+                    <div class="chart-container">
+                        <canvas id="productivityChart"></canvas>
+                    </div>
+                </div>
+                <!-- Elemento 2 -->
+                <div class="value-prop-item animated-item">
+                    <h3><i class="fas fa-brain"></i> Inteligencia Artificial Aplicada</h3>
+                    <p>Utilizo modelos de IA y Machine Learning para predecir tendencias y descubrir insights ocultos en tus datos, dándote una ventaja competitiva decisiva para anticiparte al mercado.</p>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+                <!-- Elemento 3 (Nuevo) -->
+                <div class="value-prop-item animated-item">
+                    <h3><i class="fas fa-piggy-bank"></i> Optimización de Recursos</h3>
+                    <p>Analizo tus operaciones para identificar fugas de capital y áreas de mejora, traduciendo los datos en estrategias directas para la reducción de costos y la mitigación de riesgos financieros.</p>
+                    <div class="chart-container">
+                        <canvas id="costChart"></canvas>
+                    </div>
+                </div>
+                <!-- Elemento 4 (Nuevo) -->
+                <div class="value-prop-item animated-item">
+                    <h3><i class="fas fa-compass"></i> Visión Estratégica 360°</h3>
+                    <p>Convierto datos complejos en un mapa claro de tu negocio y tus clientes, permitiendo tomar decisiones informadas que impulsan la innovación, la retención y la satisfacción del cliente.</p>
+                    <div class="chart-container">
+                        <canvas id="strategyChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========= FIN DE LA SECCIÓN ACTUALIZADA ========= -->
+
     <section id="testimonials" class="animated-section">
         <div class="container">
-            <h2>Experiencia con Organizaciones Líderes</h2>
+            <h2>Experiencia Comprobada</h2>
             <p class="section-subtitle">La confianza y los resultados son el pilar de cada colaboración.</p>
             <div class="testimonials-grid">
                 <div class="testimonial-card animated-item">
@@ -613,21 +737,21 @@
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="quote">"El análisis de datos de producción y la implementación de dashboards de control permitieron optimizar el proceso, resultando en una mejora tangible de la eficiencia operativa y la calidad del producto final."</p>
-                    <p class="author">- Colaboración con Acerías Paz del Río</p>
+                    <p class="author">- Colaboración con líder del sector Siderúrgico.</p>
                 </div>
                 <div class="testimonial-card animated-item">
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="quote">"Se desarrollaron y automatizaron reportes críticos, garantizando la integridad y precisión de los datos para la toma de decisiones estratégicas en materia de derechos humanos y negocios."</p>
-                    <p class="author">- Colaboración con Business and Human Rights</p>
+                    <p class="author">- Colaboración con Organización Internacional de DDHH.</p>
                 </div>
                 <div class="testimonial-card animated-item">
                     <div class="stars">
                         <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                     </div>
                     <p class="quote">"Mediante la estructuración y análisis de grandes volúmenes de datos, se facilitó la gestión de información clave, mejorando la eficiencia de los servicios y la planificación de recursos."</p>
-                    <p class="author">- Colaboración con NHS (National Health Service)</p>
+                    <p class="author">- Colaboración con Proveedor del Sector Salud Público.</p>
                 </div>
             </div>
         </div>
@@ -686,23 +810,142 @@
     </div>
 
     <script>
-        // Script para animar elementos al hacer scroll
-        document.addEventListener('DOMContentLoaded', () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
-                });
-            }, {
-                threshold: 0.1 // Se activa cuando el 10% del elemento es visible
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Observer para animaciones de scroll ---
+        const animatedElements = document.querySelectorAll('.animated-section, .animated-item');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
             });
-
-            // Observar todas las secciones con la clase .animated-section
-            document.querySelectorAll('.animated-section').forEach((section) => {
-                observer.observe(section);
-            });
+        }, {
+            threshold: 0.1
         });
+        animatedElements.forEach(el => observer.observe(el));
+
+        // --- Configuración de Gráficos ---
+        let productivityChart, revenueChart, costChart, strategyChart;
+
+        const chartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false,
+                    position: 'top',
+                },
+                tooltip: {
+                    enabled: true,
+                    backgroundColor: 'rgba(0,0,0,0.8)',
+                    titleFont: { size: 14, weight: 'bold' },
+                    bodyFont: { size: 12 },
+                    padding: 10,
+                    boxPadding: 4,
+                }
+            },
+            animation: {
+                duration: 1500,
+                easing: 'easeInOutQuart'
+            }
+        };
+
+        // --- Observer para animar gráficos al ser visibles ---
+        const chartObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Gráfico de Productividad (Barras)
+                    if (entry.target.id === 'productivityChart' && !productivityChart) {
+                        productivityChart = new Chart(document.getElementById('productivityChart'), {
+                            type: 'bar',
+                            data: {
+                                labels: ['Antes', 'Después'],
+                                datasets: [{
+                                    label: 'Eficiencia Operativa (%)',
+                                    data: [55, 90],
+                                    backgroundColor: ['rgba(255, 159, 64, 0.6)', 'rgba(45, 211, 102, 0.7)'],
+                                    borderColor: ['rgb(255, 159, 64)', 'rgb(45, 211, 102)'],
+                                    borderWidth: 2
+                                }]
+                            },
+                            options: {...chartOptions, scales: { y: { beginAtZero: true, max: 100 } } }
+                        });
+                    }
+                    // Gráfico de Ingresos (Línea)
+                    if (entry.target.id === 'revenueChart' && !revenueChart) {
+                        revenueChart = new Chart(document.getElementById('revenueChart'), {
+                            type: 'line',
+                            data: {
+                                labels: ['T1', 'T2', 'T3', 'T4'],
+                                datasets: [{
+                                    label: 'Nuevas Oportunidades',
+                                    data: [20, 45, 60, 95],
+                                    fill: true,
+                                    borderColor: 'rgb(211, 47, 47)',
+                                    backgroundColor: 'rgba(211, 47, 47, 0.1)',
+                                    tension: 0.4
+                                }]
+                            },
+                            options: {...chartOptions, scales: { y: { beginAtZero: true } } }
+                        });
+                    }
+                    // Gráfico de Costos (Dona)
+                    if (entry.target.id === 'costChart' && !costChart) {
+                        costChart = new Chart(document.getElementById('costChart'), {
+                            type: 'doughnut',
+                            data: {
+                                labels: ['Mantenimiento Predictivo', 'Optimización de Procesos', 'Reducción de Desperdicio'],
+                                datasets: [{
+                                    label: 'Áreas de Ahorro (%)',
+                                    data: [40, 35, 25],
+                                    backgroundColor: ['rgba(54, 162, 235, 0.8)', 'rgba(75, 192, 192, 0.8)', 'rgba(255, 206, 86, 0.8)'],
+                                    borderColor: ['#FFFFFF'],
+                                    borderWidth: 3,
+                                    hoverOffset: 4
+                                }]
+                            },
+                            options: {...chartOptions, plugins: {...chartOptions.plugins, legend: {display: true, position: 'bottom', labels: {boxWidth: 15, padding: 15}}}}
+                        });
+                    }
+                    // Gráfico de Estrategia (Radar)
+                    if (entry.target.id === 'strategyChart' && !strategyChart) {
+                        strategyChart = new Chart(document.getElementById('strategyChart'), {
+                            type: 'radar',
+                            data: {
+                                labels: ['Eficiencia', 'Conocimiento del Cliente', 'Innovación', 'Retención', 'Decisión Estratégica'],
+                                datasets: [{
+                                    label: 'Antes',
+                                    data: [30, 40, 25, 35, 45],
+                                    fill: true,
+                                    backgroundColor: 'rgba(100, 100, 100, 0.2)',
+                                    borderColor: 'rgb(100, 100, 100)',
+                                    pointBackgroundColor: 'rgb(100, 100, 100)',
+                                    pointBorderColor: '#fff',
+                                    pointHoverBackgroundColor: '#fff',
+                                    pointHoverBorderColor: 'rgb(100, 100, 100)'
+                                }, {
+                                    label: 'Después',
+                                    data: [85, 90, 75, 80, 95],
+                                    fill: true,
+                                    backgroundColor: 'rgba(211, 47, 47, 0.2)',
+                                    borderColor: 'rgb(211, 47, 47)',
+                                    pointBackgroundColor: 'rgb(211, 47, 47)',
+                                    pointBorderColor: '#fff',
+                                    pointHoverBackgroundColor: '#fff',
+                                    pointHoverBorderColor: 'rgb(211, 47, 47)'
+                                }]
+                            },
+                            options: {...chartOptions, plugins: {...chartOptions.plugins, legend: {display: true}}, scales: {r: {min: 0, max: 100, ticks: {stepSize: 20}}}}
+                        });
+                    }
+                    observer.unobserve(entry.target); // Dejar de observar una vez animado
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const chartCanvases = document.querySelectorAll('canvas');
+        chartCanvases.forEach(canvas => chartObserver.observe(canvas));
+    });
     </script>
 
 </body>
