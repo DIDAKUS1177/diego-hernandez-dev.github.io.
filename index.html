@@ -174,7 +174,7 @@
         }
 
         #hero h1 {
-            font-size: 4.2rem; /* Ajustado para mejor legibilidad */
+            font-size: 4.2rem;
             font-weight: 900;
             margin-bottom: 1rem; 
             color: var(--white); 
@@ -205,7 +205,7 @@
         }
 
         #hero p {
-            font-size: 1.3rem; /* Ajustado para el nuevo texto */
+            font-size: 1.3rem;
             font-weight: 400; 
             margin-bottom: 1.5rem; 
             color: var(--accent-color); 
@@ -276,13 +276,13 @@
             transform: translateY(0);
         }
 
-        .testimonial-card, .contact-item, .value-prop-item {
+        .testimonial-card, .contact-item, .value-prop-item, .process-step {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         
-        .is-visible .testimonial-card, .is-visible .contact-item, .is-visible .value-prop-item {
+        .is-visible .testimonial-card, .is-visible .contact-item, .is-visible .value-prop-item, .is-visible .process-step {
             opacity: 1;
             transform: translateY(0);
         }
@@ -297,8 +297,11 @@
 
 
         /* --- Secciones --- */
+        section {
+            padding: 6rem 0;
+        }
+
         #about {
-            padding: 6rem 0; 
             background: var(--light-bg); 
         }
         
@@ -318,7 +321,6 @@
         }
 
         #services {
-            padding: 6rem 0; 
             background: var(--white); 
         }
 
@@ -355,9 +357,7 @@
             margin-bottom: 1rem;
         }
         
-        /* --- SECCIÓN: Mi Propuesta de Valor --- */
         #value-prop {
-            padding: 6rem 0;
             background: var(--light-bg);
         }
 
@@ -398,9 +398,35 @@
             margin-top: auto;
         }
 
-        /* --- Sección Testimonios --- */
+        /* --- NUEVA SECCIÓN: Nuestro Proceso --- */
+        #process {
+            background: var(--white);
+        }
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .process-step {
+            padding: 2rem;
+        }
+        .process-step .icon {
+            font-size: 3.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        .process-step:hover .icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .process-step h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
         #testimonials {
-            padding: 6rem 0;
             background: var(--primary-color); 
         }
         
@@ -449,11 +475,9 @@
             margin-top: auto; 
         }
 
-        /* --- Call to Action --- */
         #cta {
             background: var(--secondary-color);
             color: var(--light-text); 
-            padding: 6rem 0;
             text-align: center; 
         }
 
@@ -483,9 +507,7 @@
             color: var(--white); 
         }
         
-        /* --- Contacto --- */
         #contact {
-            padding: 6rem 0;
             background: var(--light-bg); 
         }
         
@@ -495,6 +517,7 @@
             gap: 2rem;
             text-align: center;
             margin-top: 3rem;
+            margin-bottom: 4rem; /* Espacio para el formulario */
         }
         
         .contact-item .icon {
@@ -527,7 +550,71 @@
             color: var(--secondary-color); 
         }
 
-        /* --- Footer --- */
+        /* --- NUEVO FORMULARIO DE CONTACTO --- */
+        .contact-form-container {
+            max-width: 700px;
+            margin: 2rem auto 0 auto;
+            padding: 2.5rem;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .contact-form-container h3 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        .form-submit-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid var(--secondary-color);
+            font-family: 'Roboto', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: var(--secondary-color);
+            color: var(--white);
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .form-submit-btn:hover {
+            background: #a92424;
+            border-color: #a92424;
+        }
+
         footer {
             background: var(--primary-color); 
             color: var(--accent-color); 
@@ -539,7 +626,6 @@
             font-size: 0.9rem; 
         }
         
-        /* --- Botones Flotantes --- */
         .floating-action-buttons {
             position: fixed;
             bottom: 25px;
@@ -586,10 +672,12 @@
             #hero h1 { font-size: 2.8rem; } 
             #hero p { font-size: 1.2rem; }
             .navbar .nav-links { display: none; } 
-            .navbar .logo .tagline { display: none; } /* Ocultar tagline en móvil */
+            .navbar .logo .tagline { display: none; }
             #about .about-content { text-align: left; }
             #about h3 { text-align: center; }
-            .contact-grid, .testimonials-grid, .services-grid { grid-template-columns: 1fr; }
+            .contact-grid, .testimonials-grid, .services-grid, .process-grid { 
+                grid-template-columns: 1fr; 
+            }
         }
     </style>
 </head>
@@ -603,9 +691,10 @@
                 <span class="tagline">| Analytica Industrial</span>
             </a>
             <ul class="nav-links">
-                <li><a href="#about">Sobre Mí</a></li>
+                <li><a href="#about">Nosotros</a></li>
                 <li><a href="#services">Soluciones</a></li>
-                <li><a href="#value-prop">Mi Valor</a></li>
+                <li><a href="#value-prop">Propuesta de Valor</a></li>
+                <li><a href="#process">Nuestro Proceso</a></li>
                 <li><a href="#testimonials">Experiencia</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
@@ -628,15 +717,15 @@
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Sobre Mí</h3>
+                    <h3>Sobre Nosotros</h3>
                     <p>
-                        Soy <strong>Diego Alejandro Hernández Blanco</strong>, Ingeniero y Científico de Datos apasionado por resolver problemas complejos.
+                        En <strong>didakus</strong>, somos un equipo de ingenieros y científicos de datos apasionados por resolver problemas complejos, liderado por <strong>Diego Alejandro Hernández Blanco</strong>.
                     </p>
                     <p>
-                        Mi experiencia en el <strong>campo industrial</strong> me da una perspectiva única. Combino el rigor de la ingeniería con la agilidad de la ciencia de datos para optimizar operaciones, mejorar la calidad y descubrir nuevas oportunidades de crecimiento. No solo ofrezco un servicio, sino una visión estratégica para tu negocio.
+                        Nuestra experiencia en el <strong>campo industrial</strong> nos da una perspectiva única. Combinamos el rigor de la ingeniería con la agilidad de la ciencia de datos para optimizar operaciones, mejorar la calidad y descubrir nuevas oportunidades de crecimiento. No solo ofrecemos un servicio, sino una visión estratégica para tu negocio.
                     </p>
                      <p>
-                        Mi compromiso con la excelencia y la mejora continua está respaldado por certificaciones como auditor interno (ISO 9001, 14001, 45001), garantizando la máxima calidad en cada proyecto.
+                        Nuestro compromiso con la excelencia y la mejora continua está respaldado por certificaciones como auditores internos (ISO 9001, 14001, 45001), garantizando la máxima calidad en cada proyecto.
                     </p>
                 </div>
             </div>
@@ -652,7 +741,7 @@
                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-chart-pie"></i></div>
                     <h3>Inteligencia de Negocios (BI)</h3>
-                    <p>Transformamos datos crudos en dashboards dinámicos para que monitorees tus KPIs en tiempo real y tomes decisiones basadas en evidencia.</p>
+                    <p>Transformamos datos crudos en dashboards dinámicos (Power BI, Tableau) para que monitorees tus KPIs en tiempo real y tomes decisiones basadas en evidencia.</p>
                 </div>
                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-robot"></i></div>
@@ -661,13 +750,13 @@
                 </div>
                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-server"></i></div>
-                    <h3>Arquitectura de Datos</h3>
-                    <p>Diseñamos la infraestructura de datos (SQL, PostgreSQL) que tu empresa necesita para crecer: segura, de alto rendimiento y escalable.</p>
+                    <h3>Big Data y Arquitectura</h3>
+                    <p>Diseñamos la infraestructura de datos (SQL, PostgreSQL, Cloud) que tu empresa necesita para manejar grandes volúmenes de información de forma segura y escalable.</p>
                 </div>
                 <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Análisis Predictivo</h3>
-                    <p>Usamos machine learning para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven. Adelántate al futuro.</p>
+                    <h3>Análisis Predictivo con IA</h3>
+                    <p>Usamos machine learning y Python para anticipar tendencias, predecir comportamientos y descubrir oportunidades que otros no ven. Adelántate al futuro.</p>
                 </div>
                  <div class="service-card animated-item">
                     <div class="icon"><i class="fas fa-shield-alt"></i></div>
@@ -683,14 +772,12 @@
         </div>
     </section>
 
-    <!-- ========= SECCIÓN DE VALOR ACTUALIZADA CON 4 ELEMENTOS ========= -->
     <section id="value-prop" class="animated-section">
         <div class="container">
-            <h2>Mi Propuesta de Valor: De Datos a Decisiones</h2>
-            <p class="section-subtitle">No solo analizo datos; construyo puentes hacia la eficiencia, la rentabilidad y el crecimiento estratégico. Así es como transformo el potencial de tu negocio en resultados concretos.</p>
+            <h2>Nuestra Propuesta de Valor</h2>
+            <p class="section-subtitle">Transformamos los datos de su proceso en información para la toma de decisiones.</p>
             
             <div class="value-prop-grid">
-                <!-- Elemento 1 -->
                 <div class="value-prop-item animated-item">
                     <h3><i class="fas fa-rocket"></i> Impulso a la Productividad</h3>
                     <p>Mediante herramientas estadísticas y automatización, eliminamos cuellos de botella y optimizamos flujos de trabajo. El resultado es un equipo más ágil y enfocado en lo que realmente importa.</p>
@@ -698,26 +785,23 @@
                         <canvas id="productivityChart"></canvas>
                     </div>
                 </div>
-                <!-- Elemento 2 -->
                 <div class="value-prop-item animated-item">
                     <h3><i class="fas fa-brain"></i> Inteligencia Artificial Aplicada</h3>
-                    <p>Utilizo modelos de IA y Machine Learning para predecir tendencias y descubrir insights ocultos en tus datos, dándote una ventaja competitiva decisiva para anticiparte al mercado.</p>
+                    <p>Utilizamos modelos de IA y Machine Learning para predecir tendencias y descubrir insights ocultos en sus datos, dándole una ventaja competitiva decisiva para anticiparse al mercado.</p>
                     <div class="chart-container">
                         <canvas id="revenueChart"></canvas>
                     </div>
                 </div>
-                <!-- Elemento 3 (Nuevo) -->
                 <div class="value-prop-item animated-item">
                     <h3><i class="fas fa-piggy-bank"></i> Optimización de Recursos</h3>
-                    <p>Analizo tus operaciones para identificar fugas de capital y áreas de mejora, traduciendo los datos en estrategias directas para la reducción de costos y la mitigación de riesgos financieros.</p>
+                    <p>Analizamos sus operaciones para identificar fugas de capital y áreas de mejora, traduciendo los datos en estrategias directas para la reducción de costos y la mitigación de riesgos financieros.</p>
                     <div class="chart-container">
                         <canvas id="costChart"></canvas>
                     </div>
                 </div>
-                <!-- Elemento 4 (Nuevo) -->
                 <div class="value-prop-item animated-item">
                     <h3><i class="fas fa-compass"></i> Visión Estratégica 360°</h3>
-                    <p>Convierto datos complejos en un mapa claro de tu negocio y tus clientes, permitiendo tomar decisiones informadas que impulsan la innovación, la retención y la satisfacción del cliente.</p>
+                    <p>Convertimos datos complejos en un mapa claro de su negocio y sus clientes, permitiendo tomar decisiones informadas que impulsan la innovación, la retención y la satisfacción del cliente.</p>
                     <div class="chart-container">
                         <canvas id="strategyChart"></canvas>
                     </div>
@@ -725,7 +809,37 @@
             </div>
         </div>
     </section>
-    <!-- ========= FIN DE LA SECCIÓN ACTUALIZADA ========= -->
+
+    <!-- ========= NUEVA SECCIÓN: NUESTRO PROCESO ========= -->
+    <section id="process" class="animated-section">
+        <div class="container">
+            <h2>Nuestro Proceso</h2>
+            <p class="section-subtitle">Un enfoque estructurado y transparente para garantizar resultados excepcionales en cada proyecto.</p>
+            <div class="process-grid">
+                <div class="process-step animated-item">
+                    <div class="icon"><i class="fas fa-magnifying-glass-chart"></i></div>
+                    <h3>1. Diagnóstico y Análisis</h3>
+                    <p>Nos sumergimos en su negocio para entender sus desafíos, objetivos y el estado actual de sus datos.</p>
+                </div>
+                <div class="process-step animated-item">
+                    <div class="icon"><i class="fas fa-ruler-combined"></i></div>
+                    <h3>2. Diseño de la Solución</h3>
+                    <p>Elaboramos un plan estratégico y una arquitectura de solución a la medida de sus necesidades específicas.</p>
+                </div>
+                <div class="process-step animated-item">
+                    <div class="icon"><i class="fas fa-cogs"></i></div>
+                    <h3>3. Implementación</h3>
+                    <p>Nuestro equipo desarrolla e integra la solución, asegurando una transición fluida y una mínima interrupción.</p>
+                </div>
+                <div class="process-step animated-item">
+                    <div class="icon"><i class="fas fa-headset"></i></div>
+                    <h3>4. Soporte y Evolución</h3>
+                    <p>Ofrecemos capacitación y soporte continuo para maximizar la adopción y el valor de la nueva herramienta.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ========= FIN DE LA NUEVA SECCIÓN ========= -->
 
     <section id="testimonials" class="animated-section">
         <div class="container">
@@ -759,8 +873,8 @@
 
     <section id="cta" class="animated-section">
         <div class="container">
-            <h2>¿Listo para dar el primer paso?</h2>
-            <p>El camino hacia la optimización comienza con una conversación. Agenda tu consulta de diagnóstico gratuita y descubramos juntos el potencial oculto en tus datos.</p>
+            <h2>¿Listos para dar el primer paso?</h2>
+            <p>El camino hacia la optimización comienza con una conversación. Agenden su consulta de diagnóstico gratuita y descubramos juntos el potencial oculto en sus datos.</p>
             <a href="#contact" class="btn btn-primary">Agendar Consulta GRATIS</a>
         </div>
     </section>
@@ -768,7 +882,7 @@
     <section id="contact" class="animated-section">
         <div class="container">
             <h2>Iniciemos la Conversación</h2>
-            <p class="section-subtitle">Estoy disponible a través de estos canales para discutir su próximo proyecto.</p>
+            <p class="section-subtitle">Estamos disponibles a través de estos canales para discutir su próximo proyecto.</p>
 
             <div class="contact-grid">
                 <div class="contact-item animated-item">
@@ -788,6 +902,27 @@
                     <a href="https://www.linkedin.com/in/diego-alejandro-hernandez-blanco-08b64120b" target="_blank">Diego A. Hernández Blanco</a>
                 </div>
             </div>
+
+            <!-- ========= NUEVO FORMULARIO DE CONTACTO ========= -->
+            <div class="contact-form-container animated-item">
+                <h3>O déjenos un mensaje directo</h3>
+                <form action="#" method="POST"> <!-- La acción del formulario necesitará configuración de backend -->
+                    <div class="form-group">
+                        <label for="name">Nombre Completo</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="challenge">¿Cuál es su mayor desafío actual con los datos?</label>
+                        <textarea id="challenge" name="challenge" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Enviar Mensaje</button>
+                </form>
+            </div>
+            <!-- ========= FIN DEL FORMULARIO ========= -->
         </div>
     </section>
 
@@ -812,7 +947,7 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         // --- Observer para animaciones de scroll ---
-        const animatedElements = document.querySelectorAll('.animated-section, .animated-item');
+        const animatedElements = document.querySelectorAll('.animated-section, .animated-item, .process-step');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -938,7 +1073,7 @@
                             options: {...chartOptions, plugins: {...chartOptions.plugins, legend: {display: true}}, scales: {r: {min: 0, max: 100, ticks: {stepSize: 20}}}}
                         });
                     }
-                    observer.unobserve(entry.target); // Dejar de observar una vez animado
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.5 });
